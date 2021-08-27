@@ -4,15 +4,9 @@
 
 Используйте функции alert, confirm, prompt для общения с пользователем.
 
-Что должна делать программа:
-
-— спрашивает пользователя: "Угадай число от 1 до 100".
 — если пользовательское число больше, то бот выводит "Загаданное число меньше" и предлагает ввести новый вариант;
 — если пользовательское число меньше, то бот выводит "Загаданное число больше" и предлагает ввести новый вариант;
-— если пользователь ввел не число, то выводит сообщение "Введи число!" и предлагает ввести новый вариант;
 — если пользователь нажимает "Отмена", то игра заканчивается и выводится сообщение "Игра окончена".
-
-—  если пользовательское число равно загаданному, то игра заканчивается и выводит сообщение  "Поздравляю, Вы угадали!!!".
 
 Программа должны быть выполнена с помощью рекурсии, без единого цикла.
 
@@ -20,24 +14,61 @@
 
 */
 
-let question = +prompt('Угадай число от 1 до 100');
-
-
-
-let magicNumber = function() {
-    Math.round(Math.random() * 100);
-}
-
-console.log(magicNumber());
-
 let isNumber = function(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-} 
-
-console.log(isNumber());
-
-let askNum = function() {
-    return question;
+    return !isNaN(parseFloat(n));
 }
 
-console.log(askNum());
+
+function guessNumber(num) {
+     num = prompt('Угадай число от 1 до 100');
+
+     if (!isNumber(num)) {
+        confirm('Введи число!');
+        guessNumber();
+     }
+     console.log(num);
+     return num;
+};
+
+guessNumber();
+
+let randomNum = function() {
+    return Math.round(Math.random() * 100);
+    }
+
+    console.log(randomNum());
+
+
+function compareNumbers() {
+     
+    let result = function(num, randomNum) {
+        if(num > randomNum) {
+            alert('Загаданное число меньше');
+        } 
+        else if(num < randomNum) {
+            alert('Загаданное число больше');
+        }
+        else if(num !== randomNum) {
+            alert('Поздравляю, Вы угадали!!!');
+            
+        }
+    }
+
+return result;
+
+}
+
+compareNumbers();
+
+
+
+
+// console.log(isNumber());
+
+// let askNum = function() {
+//     return question;
+// }
+
+// console.log(askNum());
+
+
