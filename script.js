@@ -39,23 +39,22 @@ let randomNum = function() {
     console.log(randomNum());
 
 
-function compareNumbers() {
+function compareNumbers(num, randomNum) {
      
-    let result = function(num, randomNum) {
+
+        if(num !== randomNum) {
+            guessNumber();
         if(num > randomNum) {
             alert('Загаданное число меньше');
         } 
-        else if(num < randomNum) {
+        else if(num < randomNumb) {
             alert('Загаданное число больше');
         }
-        else if(num !== randomNum) {
+        else if(num === randomNumb) {
             alert('Поздравляю, Вы угадали!!!');
-            
-        }
-    }
+        }else (compareNumbers());
 
-return result;
-
+}
 }
 
 compareNumbers();
